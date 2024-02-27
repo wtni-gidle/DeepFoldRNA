@@ -170,6 +170,11 @@ def collect_features(seq_file,msa_file,hmm_file,ss_file):
     features["msa"] = msa.to(torch.int64)
     features["seq"] = msa[0].float()
     features["hmm"] = hmm.float()
+
+    # msa: [num_seqs, length, 6]
+    # 1-4:AUCG
+    # hmm: [length, 15]
+    # ss: [length, length, 1]
     
     return features
 
